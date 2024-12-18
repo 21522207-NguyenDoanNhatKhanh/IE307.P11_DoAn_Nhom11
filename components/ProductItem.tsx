@@ -8,9 +8,8 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RouteStackParamList } from "~/app";
 
 type ProductItemProps = {
-    image: string;
+  image: string;
   title: string;
-  description: string;
   price: number;
   priceBeforeDeal: number;
   priceOff: string;
@@ -27,7 +26,6 @@ type RootStackParamList = {
 const ProductItem: React.FC<ProductItemProps> = ({
     image,
     title,
-    description,
     price,
     priceBeforeDeal,
     priceOff,
@@ -52,15 +50,12 @@ const ProductItem: React.FC<ProductItemProps> = ({
                 <Text className="text-3xl text-black-100 my-22 text-start font-bold">
                     {title}
                 </Text>
-                <Text className="text-xl text-black-100/50 text-start font-medium">
-                    {description}
-                </Text>
                 <Text className="text-black-100 font-bold text-2xl text-start">
                     {' '}
                     ${price}{' '}
                 </Text>
                 <View className="flex flex-row items-center gap-x-3">
-                    <Text className="text-black-100/20 font-thin text-xl line-through text-start">
+                    <Text className="text-black-100 font-thin text-xl line-through text-start">
                     {' '}
                     {priceBeforeDeal}{' '}
                 </Text>

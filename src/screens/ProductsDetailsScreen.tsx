@@ -116,9 +116,6 @@ const ProductsDetailsScreen: React.FC<ProductDetailsProps> = ({ route }) => {
           <Text className="text-xl font-semibold text-black-100">
             Product Details
           </Text>
-          <Text className="text-md font-medium text-neutral-400">
-            {itemDetails?.description}
-          </Text>
         </View>
         {/* status */}
         <View className="flex flex-row items-center gap-x-3  mt-5">
@@ -236,7 +233,6 @@ const ProductsDetailsScreen: React.FC<ProductDetailsProps> = ({ route }) => {
               <ProductItem
                 image={item.image[0]}
                 title={item.title}
-                description={item.description}
                 price={item.price}
                 priceBeforeDeal={item.priceBeforeDeal}
                 priceOff={item.priceOff}

@@ -10,43 +10,21 @@ const randomImage = (): string =>
 const SplashData: SplashTypes[] = [
   {
     image: images.splash1,
-    title: 'Choose your meal',
+    title: 'Hãy chọn món cho bạn',
     description:
-      'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.',
+      'Chúng tôi cung cấp vô vàn sự lựa chọn để đảm bảo bữa ăn của bạn luôn đa dạng và đầy đủ dinh dưỡng.',
   },
   {
     image: images.splash2,
-    title: 'Make Payment',
+    title: 'Thanh toán nhanh chóng',
     description:
-      'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.',
+      'Vô vàn phương thức thanh toán - Tích hợp với nhiều ngân hàng và ví điện tửtử.',
   },
   {
     image: images.splash3,
-    title: 'Get Your Order',
+    title: 'Giao hàng tức khắc',
     description:
-      'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.',
-  },
-];
-const CategoriesData: FeaturesTypes[] = [
-  {
-    image: randomImage(),
-    title: 'Fried chicken',
-  },
-  {
-    image: randomImage(),
-    title: 'Chips',
-  },
-  {
-    image: randomImage(),
-    title: 'Rice',
-  },
-  {
-    image: randomImage(),
-    title: 'Kids',
-  },
-  {
-    image: randomImage(),
-    title: 'Pizza',
+      'Chỉ với một nút bấm, sau 5 phút bữa ăn ngon lành nóng hổi sẽ ngay lập tức được giao đến bạn.',
   },
 ];
 
@@ -92,7 +70,6 @@ const ProductData: ProductTypes[] = Array.from(
     return {
       image: randomImage(),
       title: randomTitle(),
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       price: price,
       priceBeforeDeal: priceBeforeDeal,
       priceOff: randomPriceOff(price, priceBeforeDeal),
@@ -149,6 +126,5 @@ const TabBarData: TabBarTypes[] = [
 export {
   TabBarData,
   ProductData,
-  CategoriesData,
   SplashData
 }

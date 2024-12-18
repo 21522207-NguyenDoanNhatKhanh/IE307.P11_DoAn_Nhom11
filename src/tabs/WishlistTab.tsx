@@ -45,23 +45,6 @@ const WishlishTab = (props: Props) => {
       </View>    
       {/**search */}
       <CustomSearch initialQuery='' />
-      {/**features */}
-      <View className='flex my-5 flex-row mx-5 justify-between'>
-        <Text className='text-2xl font-bold'>All features</Text>
-        <View className='flex flex-row gap-x-3'>
-          {
-            FeaturesData.map((item) => (
-              <View 
-                className='bg-white rounded-lg flex-row flex items-center px-3'
-                key={item.id}
-              >
-                <Text>{item.title}</Text>
-                <Image source={item.image} className='w-6 h-6' resizeMode='contain'/>
-              </View>
-            ))
-          }
-        </View>        
-      </View>
     </ScrollView>
   );
 };

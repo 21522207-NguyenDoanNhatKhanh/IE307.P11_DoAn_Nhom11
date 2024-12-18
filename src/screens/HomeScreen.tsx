@@ -6,7 +6,7 @@ import {icons} from '../constants';
 import { ItemDetails } from '../constants/types';
 
 type TabBarItemProps = {
-  source: any; // Adjust type according to your image sources
+  source: any;
   focused: boolean;
   cart?: boolean;
   name?: string;
@@ -42,8 +42,9 @@ const TabBarItem: React.FC<TabBarItemProps> = ({
           source={source}
           style={{
             tintColor: focused ? (cart ? 'white' : 'orange') : 'black',
-            width: 28,
+            width: 27,
             height: 28,
+            paddingTop: 12,
           }}
         />
       </View>
@@ -97,7 +98,7 @@ const HomeScreen = (props: Props) => {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({focused}) => (
-            <TabBarItem source={icons.home} focused={focused} name="Home" />
+            <TabBarItem source={icons.home} focused={focused} />
           ),
         }}
       />
@@ -108,9 +109,8 @@ const HomeScreen = (props: Props) => {
           tabBarLabel: '',
           tabBarIcon: ({focused}) => (
             <TabBarItem
-              source={icons.heart}
+              source={icons.fire}
               focused={focused}
-              name="Wishlist"
             />
           ),
         }}
@@ -125,8 +125,7 @@ const HomeScreen = (props: Props) => {
             <TabBarItem
               source={icons.cart}
               focused={focused}
-              cart
-              name="Cart"
+              cart              
             />
           ),
         }}
@@ -138,7 +137,7 @@ const HomeScreen = (props: Props) => {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({focused}) => (
-            <TabBarItem source={icons.search} focused={focused} name="Search" />
+            <TabBarItem source={icons.search} focused={focused} />
           ),
         }}
       />
@@ -151,7 +150,6 @@ const HomeScreen = (props: Props) => {
             <TabBarItem
               source={icons.setting}
               focused={focused}
-              name="Setting"
             />
           ),
         }}

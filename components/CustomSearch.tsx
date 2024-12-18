@@ -28,7 +28,7 @@ const CustomSearch: React.FC<CustomSearchProps> = ({
     const handlePress = () => {
         if (query === "") {
             return Alert.alert(
-                "Please fill the require field"
+                "!!Hãy nhập tên món ănăn"
             );
         } else {
             navigation.navigate('Search', { query });
@@ -47,7 +47,7 @@ const CustomSearch: React.FC<CustomSearchProps> = ({
                     />
                 </TouchableOpacity>
                 <TextInput
-                    placeholder={placeholder || 'Search any product'}
+                    placeholder={placeholder || 'Bạn mún ăn rì :>?'}
                     value={query}
                     onChangeText={(e: string) => setQuery(e)}
                     className="text-[#bbbbbb] text-lg font-pregular bg-white"

@@ -22,11 +22,11 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     <TouchableOpacity
       onPress={handlePress}
       activeOpacity={0.7}
-      className={` bg-action rounded-xl w-full flex flex-row justify-center items-center ${containerStyle} ${
+      className={` bg-orange-500 rounded-xl w-full flex flex-row justify-center items-center ${containerStyle} ${
         isLoading ? 'opacity-50' : ''
       }  `}
       disabled={isLoading}>
-      <Text className={`text-white font-bold text-2xl ${textStyle} `}>
+      <Text className={`text-[#fafafa] font-bold text-2xl ${textStyle} `}>
         {title}
       </Text>
       {isLoading && (

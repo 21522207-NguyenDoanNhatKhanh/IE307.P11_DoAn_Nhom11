@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useState} from 'react';
 import {
+  Alert,
   Image,
   ImageSourcePropType,
   Text,
@@ -31,7 +32,19 @@ const LoginScreen = (props: Props) => {
     navigation.navigate('ForgotPassword');
   };
 
-  const handleLogin = () => {};
+  const handleLogin = () => {
+    const {email, password} = form;
+    if (email === 'ted' && password === '123456') {
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubmitting(false);
+        Alert.alert('Đăng nhập thành công', 'Chào mừng!');
+        navigation.navigate('GetStarted'); 
+      }, 900);
+    } else {
+      Alert.alert('Sai thông tin đăng nhập!');
+    }
+  };
   const handleSignInWithProvider = () => {};
   const handleNavigateToSignUp = () => {
     navigation.navigate('Signup');
@@ -39,7 +52,7 @@ const LoginScreen = (props: Props) => {
   return (
     <View className="px-5 flex-1 bg-white pt-5">
       <Text className="text-4xl font-bold text-start">
-        Welcome {'\n'} Back!
+        Chào mừng {'\n'} trở lại!
       </Text>
       <View>
         {/* text input */}
@@ -52,7 +65,7 @@ const LoginScreen = (props: Props) => {
             setEmailError('');
             setForm({...form, email: e});
           }}
-          placeholder="username or email"
+          placeholder="Tên đăng nhập"
           otherStyles="mt-5"
         />
         <View className='my-5'>
@@ -65,18 +78,18 @@ const LoginScreen = (props: Props) => {
               setPasswordError('');
               setForm({...form, password: e});
             }}
-            placeholder="Password"
+            placeholder="Mật khẩu"
             otherStyles="mt-5"
           />
           <TouchableOpacity onPress={handleForgotPassword}>
-            <Text className="text-red-600 text-lg font-medium self-end">
-              Forgot Password?
+            <Text className="text-orange-500 text-lg font-medium self-end">
+              Quên mật khẩu?
             </Text>
           </TouchableOpacity>
         </View>
         {/* submit btn */}
         <CustomButton
-          title="Login"
+          title="Đăng nhập"
           handlePress={handleLogin}
           isLoading={isSubmitting}
           containerStyle="mt-7 py-5"
@@ -85,7 +98,7 @@ const LoginScreen = (props: Props) => {
         <View className="mt-5 self-center">
           <Text className="text-[#575757] text-lg self-center mt-5">
             {' '}
-            - OR Continue with -{' '}
+            - Hoặc tiếp tục với -{' '}
           </Text>
           <View className="flex flex-row items-center gap-3 mt-5 justify-between">
             {ContinueWithData.map((item, index) => {
@@ -104,10 +117,10 @@ const LoginScreen = (props: Props) => {
             })}
           </View>
           <View className="flex flex-row  items-center gap-x-2 justify-center mt-8">
-            <Text className="text-[#575757] text-xl ">Create An Account</Text>
+            <Text className="text-[#575757] text-xl ">Tạo tài khoảng bằng cách</Text>
             <TouchableOpacity onPress={handleNavigateToSignUp}>
-              <Text className="text-xl font-bold underline text-action ">
-                Sign Up
+              <Text className="text-xl font-bold underline text-orange-500 ">
+                Đăng ký
               </Text>
             </TouchableOpacity>
           </View>

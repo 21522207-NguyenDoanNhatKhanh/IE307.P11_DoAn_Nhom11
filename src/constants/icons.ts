@@ -25,6 +25,7 @@ const cart_circle = require('../../assets/icons/cart_circle.png');
 const buy = require('../../assets/icons/buy.png');
 const components = require('../../assets/icons/components.png');
 const pen = require('../../assets/icons/pen.png');
+const fire = require('../../assets/icons/fire.png')
 
 
 export default {
@@ -54,5 +55,6 @@ export default {
   cart_circle,
   components,
   buy,
-  pen
+  pen,
+  fire
 };

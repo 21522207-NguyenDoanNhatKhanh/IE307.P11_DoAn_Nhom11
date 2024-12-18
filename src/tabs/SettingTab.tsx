@@ -19,7 +19,9 @@ const SettingTab = (props: Props) => {
   const navigation = useNavigation<StackNavigationProp<RouteStackParamList>>();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleLogin = () => {};
+  const handleSingout = () => {
+    navigation.navigate('Login');
+  };
   const handleSignInWithProvider = () => {};
   const handleNavigateToSignUp = () => {
     navigation.navigate('Signup');
@@ -40,7 +42,7 @@ const SettingTab = (props: Props) => {
         {/* Personal Details */}
         <View>
           <Text className="text-2xl font-bold text-black-100">
-            Personal Details
+            Thông tin cá nhân
           </Text>
           <FlatList
             data={personalDetailsData}
@@ -54,7 +56,7 @@ const SettingTab = (props: Props) => {
         {/* Business info */}
         <View className="mt-4">
           <Text className="text-2xl font-bold text-black-100">
-            Business Address Details
+            Địa chỉ 
           </Text>
           <FlatList
             data={businessData}
@@ -68,7 +70,7 @@ const SettingTab = (props: Props) => {
         {/* Bank Account Details */}
         <View className="my-4">
           <Text className="text-2xl font-bold text-black-100">
-            Bank Account Details
+            Thông tin thẻ ngân hàng
           </Text>
           <FlatList
             data={bankData}
@@ -80,8 +82,8 @@ const SettingTab = (props: Props) => {
         </View>
         {/* save changes */}
         <CustomButton
-          title="Login"
-          handlePress={handleLogin}
+          title="Đăng xuất"
+          handlePress={handleSingout}
           isLoading={isSubmitting}
           containerStyle="mt-7 py-5"
         />
@@ -101,57 +103,57 @@ interface personalDetailsDataType {
 const personalDetailsData: personalDetailsDataType[] = [
   {
     id: 0,
-    title: 'Email Address',
-    placeholder: 'Email Address',
+    title: 'Email',
+    placeholder: 'nhom16_ie307p11@gm.uit.edu.vnvn',
   },
   {
     id: 1,
-    title: 'Password',
-    placeholder: 'Password',
+    title: 'Mật khẩu',
+    placeholder: 'Mật khẩu',
   },
 ];
 
 const businessData: personalDetailsDataType[] = [
   {
     id: 0,
-    title: 'Pincode',
-    placeholder: '450116',
+    title: 'Mã pin',
+    placeholder: '1234231',
   },
   {
     id: 1,
-    title: 'Address',
-    placeholder: " 216 St Paul's Rd, ",
+    title: 'Địa chỉ',
+    placeholder: "Khu phố 6, P. Linh Trung",
   },
   {
     id: 2,
-    title: 'City',
-    placeholder: 'London',
+    title: 'Thành phố',
+    placeholder: 'Hồ Chí Minh',
   },
   {
     id: 3,
-    title: 'State',
-    placeholder: 'N1 2LL,',
+    title: 'Quận',
+    placeholder: 'Thủ Đức',
   },
   {
     id: 4,
-    title: 'Country',
-    placeholder: 'United Kingdom',
+    title: 'Quốc gia',
+    placeholder: 'Việt Nam',
   },
 ];
 const bankData: personalDetailsDataType[] = [
   {
     id: 0,
-    title: 'Bank Account Number',
+    title: 'Số tài khoản',
     placeholder: '204356XXXXXXX',
   },
   {
     id: 1,
-    title: 'Account Holder’s Name',
-    placeholder: 'Abhiraj Sisodiya',
+    title: 'Tên chủ sở hữu',
+    placeholder: 'Nhóm 16',
   },
   {
     id: 2,
-    title: 'IFSC Code',
-    placeholder: 'SBIN00428',
+    title: 'Mã ngân hàng',
+    placeholder: '2chanBank',
   },
 ];

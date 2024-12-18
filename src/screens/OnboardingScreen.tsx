@@ -20,21 +20,21 @@ const OnboardingScreen = (props: Props) => {
         pages={[
           {
             backgroundColor: '#fff',
-            image: <Image source={SplashData[0].image} />,
+            image: <Image source={SplashData[0].image} resizeMode='contain' className='w-full'/>,
             title: SplashData[0].title,
             subtitle: SplashData[0].description,
           },
           {
             backgroundColor: '#fff',
-            image: <Image source={SplashData[0].image} />,
-            title: SplashData[0].title,
-            subtitle: SplashData[0].description,
+            image: <Image source={SplashData[1].image} resizeMode='contain' className='w-full h-40'/>,
+            title: SplashData[1].title,
+            subtitle: SplashData[1].description,
           },
           {
             backgroundColor: '#fff',
-            image: <Image source={SplashData[0].image} />,
-            title: SplashData[0].title,
-            subtitle: SplashData[0].description,
+            image: <Image source={SplashData[2].image} resizeMode='contain' className='w-full h-40'/>,
+            title: SplashData[2].title,
+            subtitle: SplashData[2].description,
           },
         ]}
       />

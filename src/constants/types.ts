@@ -15,7 +15,6 @@ type ItemDetails = ProductTypes;
 type ProductTypes = {
   image: string;
   title: string;
-  description: string;
   price: number;
   priceBeforeDeal: number;
   priceOff: string;
@@ -32,5 +31,19 @@ type TabBarTypes = {
   inActiveBGColor?: string;
   activeBGColor?: string;
 };
+
+export interface restaurantParams {
+    _id:string;
+    name:string;
+    description:string;
+    imageUrl:any;
+    foodType:string
+    time:string;
+    deliveryTimeFrom:number;
+    deliveryTimeTo:number;
+    deliveryMethod:string;
+    rating:number;
+    ratingCount:number;
+}
 
 export type {SplashTypes, FeaturesTypes, ProductTypes, TabBarTypes, ItemDetails};

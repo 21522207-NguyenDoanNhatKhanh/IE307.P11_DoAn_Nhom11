@@ -1,11 +1,11 @@
 const cover = require('../../assets/images/Cover.jpg');
-const deal_off = require('../../assets/images/deal_off.png');
-const flat = require('../../assets/images/flat.png');
+const deal_off = require('../../assets/images/deal_off.jpg');
+const flat = require('../../assets/images/flat.jpg');
 const get_started = require('../../assets/images/get_started.jpg');
 const hot_summer = require('../../assets/images/hot_summer.png');
 const logo = require('../../assets/images/logo.png');
-const splash1 = require('../../assets/images/spash_1.png');
-const splash2 = require('../../assets/images/spash_2.png');
+const splash1 = require('../../assets/images/spash_1.jpg');
+const splash2 = require('../../assets/images/spash_2.jpg');
 const splash3 = require('../../assets/images/spash_3.png');
 const sponsored = require('../../assets/images/sponserd.png');
 

@@ -40,8 +40,8 @@ const SignupScreen = (props: Props) => {
   return (
     <View className="px-5 flex-1 bg-white pt-5">
       <Text className="text-4xl font-bold text-start ">
-        Create an
-        {'\n'} account
+        Tạo một
+        {'\n'} tài khoản
       </Text>
       <View>
         {/* text input */}
@@ -54,7 +54,7 @@ const SignupScreen = (props: Props) => {
             setEmailError('');
             setForm({...form, email: e});
           }}
-          placeholder="username or email"
+          placeholder="Tên đăng nhập/ Email"
           otherStyles="my-5"
         />
         <View>
@@ -67,7 +67,7 @@ const SignupScreen = (props: Props) => {
               setPasswordError('');
               setForm({...form, password: e});
             }}
-            placeholder="Password"
+            placeholder="Mật khẩu"
             otherStyles="my-5"
           />
           <FormField
@@ -79,18 +79,18 @@ const SignupScreen = (props: Props) => {
               setPasswordError('');
               setForm({...form, password: e});
             }}
-            placeholder="ConfirmPassword"
+            placeholder="Xác nhận mật khẩu"
             otherStyles="my-5"
           />
 
           <Text className="text-[#676767] text-lg font-medium self-end">
-            By clicking the <Text className="text-red-600">Register</Text>{' '}
-            button, you agree to the public offer
+            Khi nhấn vào nút <Text className="text-orange-600">Đăng ký</Text>{' '}
+            , bạn đã đồng ý với điều khoản và dịch vụ của chúng tôi
           </Text>
         </View>
         {/* submit btn */}
         <CustomButton
-          title="Register"
+          title="Đăng ký"
           handlePress={handleLogin}
           isLoading={isSubmitting}
           containerStyle="mt-7 py-5"
@@ -99,7 +99,7 @@ const SignupScreen = (props: Props) => {
         <View className="mt-5 self-center">
           <Text className="text-[#575757] text-lg self-center mt-5">
             {' '}
-            - OR Continue with -{' '}
+            - Hoặc tiếp tục với -{' '}
           </Text>
           <View className="flex flex-row items-center gap-3 mt-5 justify-between">
             {ContinueWithData.map((item, index) => {
@@ -119,11 +119,11 @@ const SignupScreen = (props: Props) => {
           </View>
           <View className="flex flex-row  items-center gap-x-2 justify-center mt-8">
             <Text className="text-[#575757] text-xl ">
-              I Already Have an Account
+              Đã có tài khoản?
             </Text>
             <TouchableOpacity onPress={handleNavigateToLogin}>
-              <Text className="text-xl font-bold underline text-action ">
-                Login
+              <Text className="text-xl font-bold underline text-orange-500 ">
+                Đăng nhập
               </Text>
             </TouchableOpacity>
           </View>

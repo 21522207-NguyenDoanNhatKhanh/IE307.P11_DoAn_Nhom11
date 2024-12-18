@@ -23,15 +23,15 @@ const GetStartedScreen = (props: Props) => {
       <View className='h-[60vh]' />
       <View className="px-3 h-[40vh] items-center pt-3 shadow-md bg-black-100/30 w-full">
         <Text className="text-white text-4xl text-center font-bold ">
-          You want Authentic, here you go!
+          Bạn muốn một bữa ăn ngon - bổ - rẻ?
         </Text>
         <Text className="text-[#F2F2F2] text-2xl font-medium text-center mt-3">
           {' '}
-          Find it here, buy it now!{' '}
+          Đặt hàng ngay!{' '}
         </Text>
 
         <CustomButton
-          title="Get Started"
+          title="Bắt đầu"
           containerStyle="py-4 my-8"
           handlePress={GetStarted}
         />
