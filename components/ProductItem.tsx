@@ -22,7 +22,6 @@ type ProductItemProps = {
 
 type RootStackParamList = {
   ProductDetails: { itemDetails: ItemDetails } | undefined;
-  Cart: undefined; // Thêm Cart vào danh sách route
 };
 
 const ProductItem: React.FC<ProductItemProps> = ({
