@@ -6,7 +6,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { CustomSearch, ProductItem } from '~/components';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { ProductData } from '../constants/data';
-import { restuarantCategories } from '../constants/RestaurantAllData'
+import { restuarantCategories } from '../constants/data'
 import CategoryCard from '~/components/CategoryCard';
 
 type Props = {};

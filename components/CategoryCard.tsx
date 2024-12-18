@@ -1,5 +1,5 @@
-import { View, Text, SafeAreaView, Platform, ScrollView, Animated, Pressable, Image, StyleSheet } from 'react-native'
-import React, { useState, useRef } from 'react'
+import { View, Text, Pressable, Image, StyleSheet } from 'react-native'
+import React from 'react'
 
 interface CategoryParams {
     details: {

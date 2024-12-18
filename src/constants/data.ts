@@ -1,9 +1,29 @@
 import icons from './icons';
 import images from './images';
-import {FeaturesTypes, ProductTypes, SplashTypes, TabBarTypes} from './types';
+import {FeaturesTypes, ProductTypes, restaurantCategoryParams, SplashTypes, TabBarTypes} from './types';
 // random number between 1 to 1000 :)
-const randomNumber = () => Math.floor(Math.random() * 1000) + 1;
-// set the random number to the URL
+const randomNumber = (min = 1, max = 1000) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const menu = [
+  require('../../assets/images/food/burgerDisp.jpg'),
+  require('../../assets/images/food/Chicken-Republic-Fried-Rice.jpg'),
+  require('../../assets/images/food/burgerTwoDisp.jpg'),
+  require('../../assets/images/food/Menum.freis.GissDodo.png'),
+  require('../../assets/images/food/Menum.freis.Fried-Yam-and-Chicken-Wings.png'),
+  require('../../assets/images/food/Menum-Fries--Chips-Chicken-Wings.png'),
+  require('../../assets/images/food/ToastPan-Sandwhiches--SteakSandwich.jpeg'),
+  require('../../assets/images/food/ToastPan-wrap--smokedTurkeyWrap.jpeg'),
+  require('../../assets/images/food/ToastPan-Sandwhiches--SteakSandwich.jpeg'),
+  require('../../assets/images/food/Menum-PepperredProtein--pepperredPrawn.png'),
+  require('../../assets/images/food/Menum-PepperSoup--Goat-meat-pepper-soup.png'),
+  require('../../assets/images/food/Menum-Shawarma--Extra-large-chicken-shawarma.png'),
+  require('../../assets/images/food/Menum-Shawarma--shawarmaCombo.jpeg'),
+  require('../../assets/images/food/Menum-PepperSoup--Goat-meat-pepper-soup.png'),
+  require('../../assets/images/food/Chicken-Republic-Rice-Beans-with-sauce.jpg'),  
+]
+
+const randomMenuImages = (): string => menu[randomNumber(0, menu.length - 1)];
+
 const randomImage = (): string =>
   `https://picsum.photos/${Math.floor(Math.random() * 1000) + 1}/${Math.floor(Math.random() * 1000) + 1}`;
 
@@ -27,6 +47,51 @@ const SplashData: SplashTypes[] = [
       'Chỉ với một nút bấm, sau 5 phút bữa ăn ngon lành nóng hổi sẽ ngay lập tức được giao đến bạn.',
   },
 ];
+
+export const restuarantCategories:restaurantCategoryParams[] = [
+    {
+        "_id": "6537ece708ff5b7de97d0695",
+        "name": "Gà rán",
+        "imageUrl": require("../../assets/images/food/chicken-leg_821023.png"),
+    },
+    {
+        "_id": "65310f3381e4d98d60b093c5",
+        "name": "Cơm Jollof",
+        "imageUrl": require("../../assets/images/food/spice_3800322.png"),  
+    },
+    {
+        "_id": "6531206cbbe4998e90af3feb",
+        "name": "Mì ống",
+        "imageUrl": require("../../assets/images/food/spaguetti.png"),
+    },
+    {
+        "_id": "6531209dbbe4998e90af3fef",
+        "name": "Burger",
+        "imageUrl": require("../../assets/images/food/burger.png"),
+    
+    },
+    {
+        "_id": "653120babbe4998e90af3ff1",
+        "name": "Shawarma",
+        "imageUrl": require("../../assets/images/food/shawarma.png"),
+    
+    },
+    {
+        "_id": "65312084bbe4998e90af3fed",
+        "name": "Món nướng",
+        "imageUrl": require("../../assets/images/food/barbecue.png"),
+    },
+    {
+        "_id": "65310efb81e4d98d60b093c3",
+        "name": "Pizza",
+        "imageUrl": require("../../assets/images/food/pizza.png"),
+    },
+    {
+        "_id": "653120e1bbe4998e90af3ff3",
+        "name": "Bữa sáng",
+        "imageUrl": require("../../assets/images/food/breakfast.png"),
+    }
+]
 
 // Random Title
 const titles = [
