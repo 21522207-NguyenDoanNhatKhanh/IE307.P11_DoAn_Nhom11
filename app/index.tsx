@@ -17,7 +17,7 @@ import {
 import * as SplashScreen from 'expo-splash-screen';
 import GetStartedScreen from '~/src/screens/GetStartedScreen';
 import { ItemDetails, ProductTypes } from '~/src/constants/types';
-
+import CartTab from './../src/tabs/CartTab';
 export type RouteStackParamList = {
   Onboarding: undefined;
   GetStarted: undefined;
@@ -26,10 +26,11 @@ export type RouteStackParamList = {
   HomeScreen: undefined;
   Profile: undefined;
   Checkout: undefined;
-  PlaceOrder: {itemDetails: ItemDetails} | undefined;
+  PlaceOrder: { itemDetails: ItemDetails } | undefined;
   ForgotPassword: undefined;
-  ProductDetails: {itemDetails: ItemDetails} | undefined;
-}
+  ProductDetails: { itemDetails: ItemDetails } | undefined;
+  Cart: undefined;
+};
 
 const App = () => {
   const Stack = createNativeStackNavigator<RouteStackParamList>();
@@ -42,9 +43,7 @@ const App = () => {
     <NavigationIndependentTree>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{ headerShown: false }}
-            initialRouteName="GetStarted">
+          <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="GetStarted">
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
             <Stack.Screen name="GetStarted" component={GetStartedScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
@@ -53,11 +52,9 @@ const App = () => {
             <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="ProductDetails" component={ProductsDetailsScreen} />
-            <Stack.Screen
-              name="ForgotPassword"
-              component={ForgotPasswordScreen}
-            />
+            <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
           </Stack.Navigator>
+          <Stack.Screen name="Cart" component={CartTab} />
         </NavigationContainer>
       </GestureHandlerRootView>
     </NavigationIndependentTree>

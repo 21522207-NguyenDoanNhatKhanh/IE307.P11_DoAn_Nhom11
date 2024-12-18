@@ -1,11 +1,29 @@
 import icons from './icons';
 import images from './images';
-import {FeaturesTypes, ProductTypes, SplashTypes, TabBarTypes} from './types';
+import { FeaturesTypes, ProductTypes, SplashTypes, TabBarTypes } from './types';
 // random number between 1 to 1000 :)
 const randomNumber = () => Math.floor(Math.random() * 1000) + 1;
 // set the random number to the URL
 const randomImage = (): string =>
   `https://picsum.photos/${Math.floor(Math.random() * 1000) + 1}/${Math.floor(Math.random() * 1000) + 1}`;
+
+const breadImages = [
+  'https://file.hstatic.net/200000876585/file/banh-mi_a72c6378d380481e8bca31de79499778.png',
+  'https://file.hstatic.net/200000876585/file/banh-mi_a72c6378d380481e8bca31de79499778.png',
+  'https://file.hstatic.net/200000876585/file/banh-mi_a72c6378d380481e8bca31de79499778.png',
+  'https://file.hstatic.net/200000876585/file/banh-mi_a72c6378d380481e8bca31de79499778.png',
+  'https://file.hstatic.net/200000876585/file/banh-mi-pho-mai_59a318798bdd4b2493ff4435adf51498.png',
+  'https://file.hstatic.net/200000876585/file/banh-mi-pho-mai_59a318798bdd4b2493ff4435adf51498.png',
+  'https://file.hstatic.net/200000876585/file/banh-mi-pho-mai_59a318798bdd4b2493ff4435adf51498.png',
+  'https://file.hstatic.net/200000876585/file/banh-mi-pho-mai_59a318798bdd4b2493ff4435adf51498.png',
+  'https://file.hstatic.net/200000876585/file/tiramiru_be4d9de5bf194f12ba63f2ff476012e2.png',
+  'https://file.hstatic.net/200000876585/file/tiramiru_be4d9de5bf194f12ba63f2ff476012e2.png',
+  'https://file.hstatic.net/200000876585/file/tiramiru_be4d9de5bf194f12ba63f2ff476012e2.png',
+  'https://file.hstatic.net/200000876585/file/tiramiru_be4d9de5bf194f12ba63f2ff476012e2.png',
+];
+const randomNumberBread = (min = 1, max = 1000) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
+const randombreadImages = (): string => breadImages[randomNumberBread(0, breadImages.length - 1)];
 
 const SplashData: SplashTypes[] = [
   {
@@ -66,41 +84,34 @@ const titles = [
   "Men's & Boys Formal Shoes",
 ];
 
-const randomTitle = (): string =>
-  titles[Math.floor(Math.random() * titles.length)];
+const randomTitle = (): string => titles[Math.floor(Math.random() * titles.length)];
 
-const randomPrice = (): number =>
-  parseFloat((Math.floor(Math.random() * 5000) + 500).toFixed(2));
+const randomPrice = (): number => parseFloat((Math.floor(Math.random() * 5000) + 500).toFixed(2));
 
 const randomPriceBeforeDeal = (): number =>
-  parseFloat(
-    (randomPrice() + (Math.floor(Math.random() * 1000) + 100)).toFixed(2),
-  );
+  parseFloat((randomPrice() + (Math.floor(Math.random() * 1000) + 100)).toFixed(2));
 
 const randomPriceOff = (price: number, priceBeforeDeal: number): string =>
   ((1 - price / priceBeforeDeal) * 100).toFixed(2);
 
-const randomStars = (): number => (Math.random() * 5);
+const randomStars = (): number => Math.random() * 5;
 
 const randomNumberOfReview = (): number => Math.floor(Math.random() * 10000);
 
-const ProductData: ProductTypes[] = Array.from(
-  {length: 15},
-  (): ProductTypes => {
-    const price = randomPrice();
-    const priceBeforeDeal = randomPriceBeforeDeal();
-    return {
-      image: randomImage(),
-      title: randomTitle(),
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      price: price,
-      priceBeforeDeal: priceBeforeDeal,
-      priceOff: randomPriceOff(price, priceBeforeDeal),
-      stars: randomStars(),
-      numberOfReview: randomNumberOfReview(),
-    };
-  },
-);
+const ProductData: ProductTypes[] = Array.from({ length: 15 }, (): ProductTypes => {
+  const price = randomPrice();
+  const priceBeforeDeal = randomPriceBeforeDeal();
+  return {
+    image: randombreadImages(),
+    title: randomTitle(),
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    price: price,
+    priceBeforeDeal: priceBeforeDeal,
+    priceOff: randomPriceOff(price, priceBeforeDeal),
+    stars: randomStars(),
+    numberOfReview: randomNumberOfReview(),
+  };
+});
 /**
 
  */
@@ -146,9 +157,4 @@ const TabBarData: TabBarTypes[] = [
   },
 ];
 
-export {
-  TabBarData,
-  ProductData,
-  CategoriesData,
-  SplashData
-}
+export { TabBarData, ProductData, CategoriesData, SplashData };
