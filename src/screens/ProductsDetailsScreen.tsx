@@ -176,7 +176,7 @@ const ProductsDetailsScreen: React.FC<ProductDetailsProps> = ({ route }) => {
             data={itemDetails ? [itemDetails] : []}
             renderItem={({ item }) => (
               <ProductItem
-                image={item.image[0]}
+                image={item.image}
                 title={item.title}
                 description={item.description}
                 price={item.price}

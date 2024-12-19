@@ -26,7 +26,7 @@ const HomeTab = (props: Props) => {
     <ScrollView>
       <View className="mx-5 flex flex-row items-center justify-between">
         <Image source={icons.menu} className="h-8 w-8" resizeMode="contain" />
-        <Image source={images.logo} className="h-14" resizeMode="contain" />
+        <Image source={images.logo_uit_cake} className="h-14" resizeMode="contain" />
         <TouchableOpacity onPress={NavigateToProfile}>
           <Image source={icons.profile} className="h-8 w-8" resizeMode="contain" />
         </TouchableOpacity>

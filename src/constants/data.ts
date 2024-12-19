@@ -69,19 +69,41 @@ const CategoriesData: FeaturesTypes[] = [
 ];
 
 // Random Title
+// const titles = [
+//   'Women Printed Kurta',
+//   'HRX by Hrithik Roshan',
+//   "IWC Schaffhausen 2021 Pilot's Watch",
+//   'Labbin White Sneakers',
+//   'Black Winter Jacket',
+//   'Mens Starry Printed Shirt',
+//   'Black Dress',
+//   'Pink Embroidered Dress',
+//   'Realme 7',
+//   'Black Jacket',
+//   'D7200 Digital Camera',
+//   "Men's & Boys Formal Shoes",
+// ];
 const titles = [
-  'Women Printed Kurta',
-  'HRX by Hrithik Roshan',
-  "IWC Schaffhausen 2021 Pilot's Watch",
-  'Labbin White Sneakers',
-  'Black Winter Jacket',
-  'Mens Starry Printed Shirt',
-  'Black Dress',
-  'Pink Embroidered Dress',
-  'Realme 7',
-  'Black Jacket',
-  'D7200 Digital Camera',
-  "Men's & Boys Formal Shoes",
+  'Sourdough',
+  'Baguette',
+  'Ciabatta',
+  'Rye Bread',
+  'Focaccia',
+  'Whole Wheat Bread',
+  'Pita Bread',
+  'Brioche',
+  'Multigrain Bread',
+  'Flatbread',
+  'Bagel',
+  'English Muffin',
+  'Cornbread',
+  'Naan',
+  'Pretzel Bread',
+  'Challah',
+  'Panettone',
+  'Lavash',
+  'Crumpet',
+  'Irish Soda Bread',
 ];
 
 const randomTitle = (): string => titles[Math.floor(Math.random() * titles.length)];

@@ -27,35 +27,43 @@ const CartScreen = ({ route, navigation }) => {
     {
       image:
         'https://file.hstatic.net/200000876585/file/banh-mi_a72c6378d380481e8bca31de79499778.png',
-      title: 'Bánh mì Pháp',
-      description: 'Bánh bơ Pháp',
+      title: 'Sourdough',
+      description: 'An Italian flatbread flavored with olive oil and herbs.',
       price: 4500,
       quantity: 2,
     },
     {
       image:
         'https://file.hstatic.net/200000876585/file/banh-mi-pho-mai_59a318798bdd4b2493ff4435adf51498.png',
-      title: 'Bánh mì Pháp',
-      description: 'Bánh bơ Pháp',
+      title: 'Baguette',
+      description: 'A tangy, crusty bread made with fermented dough.',
       price: 4500,
       quantity: 2,
     },
     {
       image:
         'https://file.hstatic.net/200000876585/file/tiramiru_be4d9de5bf194f12ba63f2ff476012e2.png',
-      title: 'Bánh mì Pháp',
-      description: 'Bánh bơ Pháp',
+      title: 'Bagel',
+      description: 'A long, thin French bread with a crispy crust.',
+      price: 4500,
+      quantity: 2,
+    },
+    {
+      image:
+        'https://file.hstatic.net/200000876585/file/banh-kem_af8d1cf6c5c44d56bad60dae8cd0f868.png',
+      title: 'Flatbread',
+      description: 'A bread made with a mix of grains for extra texture and flavor.',
       price: 4500,
       quantity: 2,
     },
   ];
 
   // Tính t?ng giá ti?n
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item?.price * (item?.quantity || 1),
-    0
-  );
-
+  // const totalPrice = cartItems.reduce(
+  //   (total, item) => total + item?.price * (item?.quantity || 1),
+  //   0
+  // );
+  const totalPrice = 4500 * 4;
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Giỏ Hàng</Text>
