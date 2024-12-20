@@ -28,7 +28,7 @@ const CustomSearch: React.FC<CustomSearchProps> = ({
     const handlePress = () => {
         if (query === "") {
             return Alert.alert(
-                "!!Hãy nhập tên món ănăn"
+                "!! Hãy nhập tên món ăn!!"
             );
         } else {
             navigation.navigate('Search', { query });

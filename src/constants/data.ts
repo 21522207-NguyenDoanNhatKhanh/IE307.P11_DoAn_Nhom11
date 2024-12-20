@@ -4,25 +4,17 @@ import {FeaturesTypes, ProductTypes, restaurantCategoryParams, SplashTypes, TabB
 // random number between 1 to 1000 :)
 const randomNumber = (min = 1, max = 1000) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const menu = [
-  require('../../assets/images/food/burgerDisp.jpg'),
-  require('../../assets/images/food/Chicken-Republic-Fried-Rice.jpg'),
-  require('../../assets/images/food/burgerTwoDisp.jpg'),
-  require('../../assets/images/food/Menum.freis.GissDodo.png'),
-  require('../../assets/images/food/Menum.freis.Fried-Yam-and-Chicken-Wings.png'),
-  require('../../assets/images/food/Menum-Fries--Chips-Chicken-Wings.png'),
-  require('../../assets/images/food/ToastPan-Sandwhiches--SteakSandwich.jpeg'),
-  require('../../assets/images/food/ToastPan-wrap--smokedTurkeyWrap.jpeg'),
-  require('../../assets/images/food/ToastPan-Sandwhiches--SteakSandwich.jpeg'),
-  require('../../assets/images/food/Menum-PepperredProtein--pepperredPrawn.png'),
-  require('../../assets/images/food/Menum-PepperSoup--Goat-meat-pepper-soup.png'),
-  require('../../assets/images/food/Menum-Shawarma--Extra-large-chicken-shawarma.png'),
-  require('../../assets/images/food/Menum-Shawarma--shawarmaCombo.jpeg'),
-  require('../../assets/images/food/Menum-PepperSoup--Goat-meat-pepper-soup.png'),
-  require('../../assets/images/food/Chicken-Republic-Rice-Beans-with-sauce.jpg'),  
-]
+const dishesImgs = [
+  'https://drive.google.com/uc?id=12yhW2a4fK_DVJA77oZ4GvIR-iIYAz3VH',
+  'https://drive.google.com/uc?id=1MLBs82EYoynMTX15-6gR0vRx0z3UygKx',
+  'https://drive.google.com/uc?id=1v6t4mCHj-I2q3Y7p4SvrIuEcfZFiM6-G',
+  'https://drive.google.com/uc?id=1mzPIZ0LiOPtyB_8sdxE7DP5SmkcFcS8h',
+  'https://drive.google.com/uc?id=1YLh1AQaQ45XhIJAgjdKtmfC2yVKSo7zw',
+  'https://drive.google.com/uc?id=1WRwYWI68W9PgK_3WJgx9LpuOo7vp3zmT',
+  'https://drive.google.com/uc?id=1vkFqhXKGcUzrD80KlDhy3g7GdZvmf-Rm',
+];
 
-const randomMenuImages = (): string => menu[randomNumber(0, menu.length - 1)];
+const randomDishesImgs = () : string => dishesImgs[randomNumber(0, dishesImgs.length -1)];
 
 const randomImage = (): string =>
   `https://picsum.photos/${Math.floor(Math.random() * 1000) + 1}/${Math.floor(Math.random() * 1000) + 1}`;
@@ -95,25 +87,21 @@ export const restuarantCategories:restaurantCategoryParams[] = [
 
 // Random Title
 const titles = [
-  'Women Printed Kurta',
-  'HRX by Hrithik Roshan',
-  "IWC Schaffhausen 2021 Pilot's Watch",
-  'Labbin White Sneakers',
-  'Black Winter Jacket',
-  'Mens Starry Printed Shirt',
-  'Black Dress',
-  'Pink Embroidered Dress',
-  'Realme 7',
-  'Black Jacket',
-  'D7200 Digital Camera',
-  "Men's & Boys Formal Shoes",
+  'Chả giò',
+  'Bò kho',
+  'Mì Quảng',
+  'Bún bò',
+  'Phở bò',
+  'Chạo tôm',
+  'Bánh mì',
 ];
 
-const randomTitle = (): string =>
-  titles[Math.floor(Math.random() * titles.length)];
-
-const randomPrice = (): number =>
-  parseFloat((Math.floor(Math.random() * 5000) + 500).toFixed(2));
+const randomPrice = (): number => {
+  const min = 20000;
+  const max = 120000;
+  const step = 1000;
+  return Math.floor(Math.random() * ((max - min) / step + 1)) * step + min;
+};
 
 const randomPriceBeforeDeal = (): number =>
   parseFloat(
@@ -123,26 +111,13 @@ const randomPriceBeforeDeal = (): number =>
 const randomPriceOff = (price: number, priceBeforeDeal: number): string =>
   ((1 - price / priceBeforeDeal) * 100).toFixed(2);
 
-const randomStars = (): number => (Math.random() * 5);
-
-const randomNumberOfReview = (): number => Math.floor(Math.random() * 10000);
-
-const ProductData: ProductTypes[] = Array.from(
-  {length: 15},
-  (): ProductTypes => {
-    const price = randomPrice();
-    const priceBeforeDeal = randomPriceBeforeDeal();
-    return {
-      image: randomImage(),
-      title: randomTitle(),
-      price: price,
-      priceBeforeDeal: priceBeforeDeal,
-      priceOff: randomPriceOff(price, priceBeforeDeal),
-      stars: randomStars(),
-      numberOfReview: randomNumberOfReview(),
-    };
-  },
-);
+const ProductData: ProductTypes[] = Array.from({ length: dishesImgs.length }, (_, index) => ({
+  image: dishesImgs[index],
+  title: titles[index],
+  price: randomPrice(),
+  priceBeforeDeal: randomPriceBeforeDeal(),
+  priceOff: randomPriceOff(randomPrice(), randomPriceBeforeDeal()),
+}));
 /**
 
  */

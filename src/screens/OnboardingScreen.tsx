@@ -17,6 +17,7 @@ const OnboardingScreen = (props: Props) => {
       <Onboarding
       onDone={handleDone}
       onSkip={handleDone}
+      
         pages={[
           {
             backgroundColor: '#fff',

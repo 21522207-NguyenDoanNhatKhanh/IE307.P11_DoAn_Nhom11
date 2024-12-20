@@ -24,10 +24,9 @@ type ProductTypes = {
   price: number;
   priceBeforeDeal: number;
   priceOff: string;
-  stars: number;
-  numberOfReview: number;
-  size?: number[];
 };
+
+
 type TabBarTypes = {
   title?: string;
   image: string;

@@ -34,7 +34,7 @@ const LoginScreen = (props: Props) => {
 
   const handleLogin = () => {
     const {email, password} = form;
-    if (email === 'ted' && password === '123456') {
+    if (email === '21522207@gm.uit.edu.vn' && password === '123456') {
       setIsSubmitting(true);
       setTimeout(() => {
         setIsSubmitting(false);

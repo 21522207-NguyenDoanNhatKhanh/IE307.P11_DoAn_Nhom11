@@ -26,6 +26,8 @@ const buy = require('../../assets/icons/buy.png');
 const components = require('../../assets/icons/components.png');
 const pen = require('../../assets/icons/pen.png');
 const fire = require('../../assets/icons/fire.png')
+const addcart = require('../../assets/icons/addToCard.png')
+const revcart = require('../../assets/icons/removeFromCart.png')
 
 
 export default {
@@ -56,5 +58,7 @@ export default {
   components,
   buy,
   pen,
-  fire
+  fire,
+  addcart,
+  revcart
 };

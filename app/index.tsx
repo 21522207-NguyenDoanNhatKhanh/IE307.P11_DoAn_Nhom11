@@ -1,10 +1,8 @@
-import { View, Text } from 'react-native';
 import React, { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
-  CheckoutScreen,
   ForgotPasswordScreen,
   HomeScreen,
   LoginScreen,
@@ -14,9 +12,15 @@ import {
   ProfileScreen,
   SignupScreen,
 } from '../src/screens';
+import CartTab from './../src/tabs/CartTab';
 import * as SplashScreen from 'expo-splash-screen';
 import GetStartedScreen from '~/src/screens/GetStartedScreen';
-import { ItemDetails, ProductTypes } from '~/src/constants/types';
+import { ItemDetails } from '~/src/constants/types';
+import { CartProvider } from '~/components/CartContext';
+import MenuList from '~/components/MenuList';
+import { SettingTab } from '~/src/tabs';
+import { SafeAreaView } from 'react-native';
+
 
 export type RouteStackParamList = {
   Onboarding: undefined;
@@ -26,9 +30,12 @@ export type RouteStackParamList = {
   HomeScreen: undefined;
   Profile: undefined;
   Checkout: undefined;
-  PlaceOrder: {itemDetails: ItemDetails} | undefined;
+  PlaceOrder: { itemDetails: ItemDetails } | undefined;
   ForgotPassword: undefined;
-  ProductDetails: {itemDetails: ItemDetails} | undefined;
+  ProductDetails: { itemDetails: ItemDetails } | undefined;
+  Cart: undefined;
+  MenuList: undefined;
+  Setting: undefined;
 }
 
 const App = () => {
@@ -39,28 +46,35 @@ const App = () => {
   }, []);
 
   return (
-    <NavigationIndependentTree>
+    <CartProvider>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{ headerShown: false }}
-            initialRouteName="Onboarding">
-            <Stack.Screen name="HomeScreen" component={HomeScreen} />
-            <Stack.Screen name="GetStarted" component={GetStartedScreen} />
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-            <Stack.Screen name="PlaceOrder" component={PlaceOrder} />
-            <Stack.Screen name="Profile" component={ProfileScreen} />
-            <Stack.Screen name="Signup" component={SignupScreen} />
-            <Stack.Screen name="ProductDetails" component={ProductsDetailsScreen} />
-            <Stack.Screen
-              name="ForgotPassword"
-              component={ForgotPasswordScreen}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <SafeAreaView style={{ flex: 1 }}>
+          <NavigationIndependentTree>
+            <NavigationContainer>
+              <Stack.Navigator
+                screenOptions={{ headerShown: false }}
+                initialRouteName="Onboarding">
+                <Stack.Screen name="HomeScreen" component={HomeScreen} />
+                <Stack.Screen name="GetStarted" component={GetStartedScreen} />
+                <Stack.Screen name="Login" component={LoginScreen} />
+                <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+                <Stack.Screen name="PlaceOrder" component={PlaceOrder} />
+                <Stack.Screen name="Profile" component={ProfileScreen} />
+                <Stack.Screen name="Setting" component={SettingTab} />
+                <Stack.Screen name="Signup" component={SignupScreen} />
+                <Stack.Screen name="ProductDetails" component={ProductsDetailsScreen} />
+                <Stack.Screen
+                  name="ForgotPassword"
+                  component={ForgotPasswordScreen}
+                />
+                <Stack.Screen name="Cart" component={CartTab} />
+                <Stack.Screen name="MenuList" component={MenuList} />
+              </Stack.Navigator>
+            </NavigationContainer>
+          </NavigationIndependentTree>
+        </SafeAreaView>
       </GestureHandlerRootView>
-    </NavigationIndependentTree>
+    </CartProvider>
   );
 };
 

@@ -6,12 +6,12 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
-import React, {useState} from 'react';
-import {icons} from '../constants';
-import {CustomButton, CustomWrapper, DetailsItem} from '../../components';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RouteStackParamList} from '~/app/index'
+import React, { useState } from 'react';
+import { icons } from '../constants';
+import { CustomButton, CustomWrapper, DetailsItem } from '../../components';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteStackParamList } from '~/app/index'
 
 type Props = {};
 
@@ -22,11 +22,11 @@ const SettingTab = (props: Props) => {
   const handleSingout = () => {
     navigation.navigate('Login');
   };
-  const handleSignInWithProvider = () => {};
-  const handleNavigateToSignUp = () => {
-    navigation.navigate('Signup');
+  const handleSignInWithProvider = () => { };
+  const handleNavigateToHome = () => {
+    navigation.navigate('HomeScreen');
   };
-  const handleEditPic = () => {};
+  const handleEditPic = () => { };
   return (
     <CustomWrapper>
       <View className="pt-2 px-3">
@@ -46,7 +46,7 @@ const SettingTab = (props: Props) => {
           </Text>
           <FlatList
             data={personalDetailsData}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <DetailsItem title={item.title} placeholder={item.placeholder} />
             )}
             keyExtractor={item => item.id.toString()} // have to be in string format
@@ -56,11 +56,11 @@ const SettingTab = (props: Props) => {
         {/* Business info */}
         <View className="mt-4">
           <Text className="text-2xl font-bold text-black-100">
-            Địa chỉ 
+            Địa chỉ
           </Text>
           <FlatList
             data={businessData}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <DetailsItem title={item.title} placeholder={item.placeholder} />
             )}
             keyExtractor={item => item.id.toString()} // have to be in string format
@@ -74,19 +74,27 @@ const SettingTab = (props: Props) => {
           </Text>
           <FlatList
             data={bankData}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <DetailsItem title={item.title} placeholder={item.placeholder} />
             )}
             keyExtractor={item => item.id.toString()} // have to be in string format
           />
         </View>
         {/* save changes */}
-        <CustomButton
-          title="Đăng xuất"
-          handlePress={handleSingout}
-          isLoading={isSubmitting}
-          containerStyle="mt-7 py-5"
-        />
+        <View className='flex items-center align-between'>
+          <CustomButton
+            title="Đăng xuất"
+            handlePress={handleSingout}
+            isLoading={isSubmitting}
+            containerStyle="mt-7 py-5"
+          />
+          <CustomButton
+            title="Trang chủ"
+            handlePress={handleNavigateToHome}
+            isLoading={isSubmitting}
+            containerStyle="mt-7 py-5"
+          />
+        </View>
       </View>
     </CustomWrapper>
   );

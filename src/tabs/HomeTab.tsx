@@ -39,11 +39,9 @@ const HomeTab = (props: Props) => {
     ]
   }
 
-  const handleSelectCategory = () => { }
-
   return (
     <ScrollView>
-      <View className='flex flex-row items-center justify-between mx-5'>
+      <View className='flex flex-row items-center justify-between mx-5 py-5'>
         <Image
           source={icons.menu}
           className='w-8 h-8'
@@ -149,13 +147,11 @@ const HomeTab = (props: Props) => {
           data={ProductData}
           renderItem={({ item }) => (
             <ProductItem
-              image={item.image[0]}
+              image={item.image}
               title={item.title}
               price={item.price}
               priceBeforeDeal={item.priceBeforeDeal}
               priceOff={item.priceOff}
-              stars={item.stars}
-              numberOfReview={item.numberOfReview}
               itemDetails={item}
             />
           )}

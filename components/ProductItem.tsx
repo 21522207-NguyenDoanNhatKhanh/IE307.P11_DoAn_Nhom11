@@ -13,9 +13,6 @@ type ProductItemProps = {
   price: number;
   priceBeforeDeal: number;
   priceOff: string;
-  stars: number;
-  numberOfReview: number;
-  size?: number[];
   itemDetails: ItemDetails;
 }
 
@@ -29,8 +26,6 @@ const ProductItem: React.FC<ProductItemProps> = ({
     price,
     priceBeforeDeal,
     priceOff,
-    stars,
-    numberOfReview,
     itemDetails,
 }) => {
     const navigation = useNavigation<StackNavigationProp<RouteStackParamList, 'ProductDetails'>>()
@@ -50,33 +45,18 @@ const ProductItem: React.FC<ProductItemProps> = ({
                 <Text className="text-3xl text-black-100 my-22 text-start font-bold">
                     {title}
                 </Text>
-                <Text className="text-black-100 font-bold text-2xl text-start">
+                <Text className="text-orange-500 font-bold text-2xl text-start">
                     {' '}
-                    ${price}{' '}
+                    {price}₫{' '}
                 </Text>
                 <View className="flex flex-row items-center gap-x-3">
-                    <Text className="text-black-100 font-thin text-xl line-through text-start">
+                    <Text className="text-black-100 font-semibold text-xl line-through text-start">
                     {' '}
-                    {priceBeforeDeal}{' '}
+                    {priceBeforeDeal}₫{' '}
                 </Text>
-                    <Text className="text-action font-thin text-xl">
+                    <Text className="text-action font-semibold text-xl">
                         {' '}
-                        {priceOff}{' '}
-                    </Text>
-                </View>
-                <View className="flex flex-row items-center mb-3 ml-3">
-                    <View>
-                        <AirbnbRating
-                            count={stars}
-                            reviews={["Terrible", "Bad", "OK", "Good", "Very Good"]}
-                            defaultRating={stars}
-                            size={20}
-                            ratingContainerStyle={{flex: 1, flexDirection: 'row'}}
-                        />
-                    </View>
-                    <Text className="text-xl font-thin text-black-100/30">
-                        {' '}
-                        {numberOfReview}{' '}
+                        {priceOff}₫{' '}
                     </Text>
                 </View>
             </View>
