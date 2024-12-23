@@ -6,7 +6,7 @@ import { CustomButton, FormField } from '../../components';
 import { icons } from '../constants';
 
 type Props = {};
-import { UserContext } from './../../components/Context';
+import { UserContext } from '../../Auth/Context';
 const LoginScreen = (props: Props) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const [emailError, setEmailError] = useState('');
@@ -28,6 +28,14 @@ const LoginScreen = (props: Props) => {
   console.log(user.email);
   console.log(user.password);
   const handleLogin = () => {
+    // if (!user.email || !user.password) {
+    //   alert('Vui lòng nhập đầy đủ thông tin!');
+    //   return;
+    // }
+    if (!user || !user.email || !user.password) {
+      alert('Bạn chưa đăng ký tài khoản!');
+      return;
+    }
     const { email, password } = form;
     if (email === user.email && password === user.password) {
       setIsSubmitting(true);

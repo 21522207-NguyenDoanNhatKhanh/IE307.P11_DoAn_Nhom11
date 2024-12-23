@@ -21,7 +21,7 @@ import MenuList from '~/components/MenuList';
 import { SettingTab } from '~/src/tabs';
 import { SafeAreaView } from 'react-native';
 
-import { UserProvider } from './../components/Context';
+import { UserProvider } from '../Auth/Context';
 
 export type RouteStackParamList = {
   Onboarding: undefined;
