@@ -67,7 +67,7 @@ const WishlishTab: React.FC = () => {
       {/**search */}
       <CustomSearch initialQuery='' />
 
-      <Text className='text-3xl font-bold text-center pb-8'>Các món ăn hiện đang On Top</Text>
+      <Text className='text-3xl font-bold text-center pb-2'>Các món ăn hiện đang On Top</Text>
       <FlatList
         data={products}
         keyExtractor={(item) => item.id.toString()}
@@ -96,7 +96,7 @@ const WishlishTab: React.FC = () => {
         )}
         contentContainerStyle={{
           paddingHorizontal: 10,
-          paddingBottom: 160,
+          paddingBottom: 180,
         }}
         showsVerticalScrollIndicator={false}
       />

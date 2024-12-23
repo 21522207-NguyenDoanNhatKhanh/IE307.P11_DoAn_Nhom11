@@ -89,7 +89,7 @@ const CartTab: React.FC = () => {
             />
 
             <Text style={styles.total}>Tổng: {calculateTotal()}₫</Text>
-            <View className="flex flex-row justify-between items-center mt-4 px-4">
+            <View className="flex flex-row justify-between items-center mx-4 px-4">
                 <Button
                     title="Làm trống"
                     onPress={clearCart}

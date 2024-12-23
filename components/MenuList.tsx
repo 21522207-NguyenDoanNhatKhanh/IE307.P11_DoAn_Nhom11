@@ -62,7 +62,7 @@ const MenuList: React.FC = () => {
                     />
                 </TouchableOpacity>
             </View>
-            <Text className='text-3xl font-bold text-center pb-8'>Xin mời chọn món ;3</Text>
+            <Text className='text-3xl font-bold text-center pb-2'>Xin mời chọn món ;3</Text>
             <FlatList
                 data={products}
                 keyExtractor={(item) => item.id.toString()}

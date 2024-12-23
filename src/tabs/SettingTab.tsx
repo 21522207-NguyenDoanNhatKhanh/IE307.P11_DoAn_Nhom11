@@ -82,18 +82,18 @@ const SettingTab = (props: Props) => {
         </View>
         {/* save changes */}
         <View className='flex items-center align-between'>
-          <CustomButton
-            title="Đăng xuất"
-            handlePress={handleSingout}
-            isLoading={isSubmitting}
-            containerStyle="mt-7 py-5"
-          />
-          <CustomButton
+        <CustomButton
             title="Trang chủ"
             handlePress={handleNavigateToHome}
             isLoading={isSubmitting}
             containerStyle="mt-7 py-5"
           />
+          <CustomButton
+            title="Đăng xuất"
+            handlePress={handleSingout}
+            isLoading={isSubmitting}
+            containerStyle="py-3 px-6 bg-red-500 rounded-lg my-7"
+          />          
         </View>
       </View>
     </CustomWrapper>
@@ -112,12 +112,12 @@ const personalDetailsData: personalDetailsDataType[] = [
   {
     id: 0,
     title: 'Email',
-    placeholder: 'nhom16_ie307p11@gm.uit.edu.vnvn',
+    placeholder: '21522207@gm.uit.edu.vn',
   },
   {
     id: 1,
     title: 'Mật khẩu',
-    placeholder: 'Mật khẩu',
+    placeholder: '******',
   },
 ];
 

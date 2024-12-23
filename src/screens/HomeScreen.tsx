@@ -42,8 +42,8 @@ const TabBarItem: React.FC<TabBarItemProps> = ({
           source={source}
           style={{
             tintColor: focused ? (cart ? 'white' : 'orange') : 'black',
-            width: 27,
-            height: 28,
+            width: 24,
+            height: 24,
             paddingTop: 12,
           }}
         />
@@ -77,7 +77,7 @@ const HomeScreen = (props: Props) => {
         tabBarStyle: {
           backgroundColor: 'white',
           borderTopColor: 'grey',
-          height: 70,
+          height: 60,
           borderTopWidth: 0.2,
           shadowColor: '#000',
           shadowOffset: {width: 0, height: 2},
@@ -96,9 +96,9 @@ const HomeScreen = (props: Props) => {
         name="Home"
         component={HomeTab}
         options={{
-          tabBarLabel: '',
+          tabBarLabel: 'Home',
           tabBarIcon: ({focused}) => (
-            <TabBarItem source={icons.home} focused={focused} />
+            <TabBarItem source={icons.homepg} focused={focused} />
           ),
         }}
       />
@@ -106,7 +106,7 @@ const HomeScreen = (props: Props) => {
         name="Wishlist"
         component={WishlistTab}
         options={{
-          tabBarLabel: '',
+          tabBarLabel: 'Hot',
           tabBarIcon: ({focused}) => (
             <TabBarItem
               source={icons.fire}
@@ -123,7 +123,7 @@ const HomeScreen = (props: Props) => {
           tabBarLabel: '',
           tabBarIcon: ({focused}) => (
             <TabBarItem
-              source={icons.cart}
+              source={icons.cartpg}
               focused={focused}
               cart              
             />
@@ -135,7 +135,7 @@ const HomeScreen = (props: Props) => {
         name="Search"
         component={SearchTab}
         options={{
-          tabBarLabel: '',
+          tabBarLabel: 'Search',
           tabBarIcon: ({focused}) => (
             <TabBarItem source={icons.search} focused={focused} />
           ),
@@ -145,10 +145,10 @@ const HomeScreen = (props: Props) => {
         name="Setting"
         component={SettingTab}
         options={{
-          tabBarLabel: '',
+          tabBarLabel: 'Profile',
           tabBarIcon: ({focused}) => (
             <TabBarItem
-              source={icons.setting}
+              source={icons.pr5}
               focused={focused}
             />
           ),

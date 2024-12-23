@@ -29,6 +29,10 @@ const fire = require('../../assets/icons/fire.png')
 const addcart = require('../../assets/icons/addToCard.png')
 const revcart = require('../../assets/icons/removeFromCart.png')
 
+const homepg = require('../../assets/icons/588a6660d06f6719692a2d16.png')
+const searchpg = require('../../assets/icons/search-outline.svg')
+const pr5 = require('../../assets/icons/Profile-Avatar-PNG-Free-Download.png')
+const cartpg = require('../../assets/icons/vecteezy_shopping-cart-icon-shopping-basket-on-transparent_19787018.png')
 
 export default {
   eye,
@@ -60,5 +64,9 @@ export default {
   pen,
   fire,
   addcart,
-  revcart
+  revcart,
+  homepg,
+  pr5,
+  cartpg,
+  searchpg
 };

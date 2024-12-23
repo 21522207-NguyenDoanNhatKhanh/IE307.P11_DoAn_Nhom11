@@ -77,13 +77,13 @@ const SearchTab: React.FC<SearchProps> = ({ route }) => {
         <Text className="text-3xl font-bold text-center text-gray-800">
           Kết quả tìm kiếm cho:
         </Text>
-        <Text className="text-2xl font-bold text-center text-orange-500 mt-2">
+        <Text className="text-2xl font-bold text-center text-orange-500 mt-1">
           {query || "Không có"}
         </Text>
       </View>
 
       {/* No Result Message */}
-      <View className="mx-5 mt-10">
+      <View className="mx-5">
   {query ? (
     <>
       <Text className="text-2xl font-bold text-center text-gray-800">

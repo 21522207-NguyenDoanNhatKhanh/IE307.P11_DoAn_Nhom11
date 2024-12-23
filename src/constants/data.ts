@@ -85,7 +85,6 @@ export const restuarantCategories:restaurantCategoryParams[] = [
     }
 ]
 
-// Random Title
 const titles = [
   'Chả giò',
   'Bò kho',

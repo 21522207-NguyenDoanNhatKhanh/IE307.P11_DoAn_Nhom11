@@ -7,9 +7,7 @@ import {
   HomeScreen,
   LoginScreen,
   OnboardingScreen,
-  PlaceOrder,
   ProductsDetailsScreen,
-  ProfileScreen,
   SignupScreen,
 } from '../src/screens';
 import CartTab from './../src/tabs/CartTab';
@@ -20,6 +18,7 @@ import { CartProvider } from '~/components/CartContext';
 import MenuList from '~/components/MenuList';
 import { SettingTab } from '~/src/tabs';
 import { SafeAreaView } from 'react-native';
+import WishlishTab from '~/src/tabs/WishlistTab';
 
 
 export type RouteStackParamList = {
@@ -28,14 +27,13 @@ export type RouteStackParamList = {
   Login: undefined;
   Signup: undefined;
   HomeScreen: undefined;
-  Profile: undefined;
   Checkout: undefined;
-  PlaceOrder: { itemDetails: ItemDetails } | undefined;
   ForgotPassword: undefined;
   ProductDetails: { itemDetails: ItemDetails } | undefined;
   Cart: undefined;
   MenuList: undefined;
   Setting: undefined;
+  Hot: undefined;
 }
 
 const App = () => {
@@ -58,8 +56,6 @@ const App = () => {
                 <Stack.Screen name="GetStarted" component={GetStartedScreen} />
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-                <Stack.Screen name="PlaceOrder" component={PlaceOrder} />
-                <Stack.Screen name="Profile" component={ProfileScreen} />
                 <Stack.Screen name="Setting" component={SettingTab} />
                 <Stack.Screen name="Signup" component={SignupScreen} />
                 <Stack.Screen name="ProductDetails" component={ProductsDetailsScreen} />
@@ -69,6 +65,7 @@ const App = () => {
                 />
                 <Stack.Screen name="Cart" component={CartTab} />
                 <Stack.Screen name="MenuList" component={MenuList} />
+                <Stack.Screen name="Hot" component={WishlishTab} />
               </Stack.Navigator>
             </NavigationContainer>
           </NavigationIndependentTree>

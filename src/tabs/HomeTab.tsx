@@ -17,10 +17,15 @@ const HomeTab = (props: Props) => {
 
   type RootStackParamList = {
     Setting: undefined;
+    Hot: undefined;
   };
 
   const NavigateToProfile = () => {
     navigation.navigate('Setting');
+  }
+
+  const NavigateToHot = () => {
+    navigation.navigate('Hot');
   }
 
   const [activeCat, setActiveCat] = useState<string>('')
@@ -143,7 +148,7 @@ const HomeTab = (props: Props) => {
       </View>
       {/* Products */}
       <View className="my-8">
-      <FlatList
+        <FlatList
           data={ProductData}
           renderItem={({ item }) => (
             <ProductItem
@@ -204,14 +209,17 @@ const HomeTab = (props: Props) => {
             </Text>
           </View>
         </View>
-        <View className='py-2 px-2 rounded-lg border-white h-12 px-3 border-2 mr-3 flex flex-row gap-x-px items-center'>
-          <Text className='text-white font-medium text-lg'>Đến xem!</Text>
-          <Image
-            source={icons.show_all}
-            resizeMode='contain'
-            className='w-6 h-6'
-          />
-        </View>
+        <TouchableOpacity onPress={NavigateToHot}>
+          <View className='py-2 px-2 rounded-lg border-white h-12 px-3 border-2 mr-3 flex flex-row gap-x-px items-center'>
+            <Text className='text-white font-medium text-lg'>Đến xem!</Text>
+            <Image
+              source={icons.show_all}
+              resizeMode='contain'
+              className='w-6 h-6'
+            />
+          </View>
+        </TouchableOpacity>
+
       </View>
     </ScrollView>
   );
