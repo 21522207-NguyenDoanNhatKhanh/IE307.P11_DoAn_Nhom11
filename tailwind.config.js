@@ -14,10 +14,6 @@ module.exports = {
           200: "#C4C4C4",
           300: "#F3F3F3",
         },
-        background: {
-          100: "#FFFFFF",
-          100: "#F9F9F9",
-        }
       },
       fontFamily: {
         pthin: ["Poppins-Thin", "sans-serif"],

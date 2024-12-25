@@ -106,7 +106,7 @@ const ProductsDetailsScreen: React.FC<ProductDetailsProps> = ({ route }) => {
           </Text>
           {/* features */}
           <View className="flex my-5 flex-row mx-5 justify-between ">
-            <Text className="text-2xl font-bold ">n = n++ món khác </Text>
+            <Text className="text-2xl font-bold ">Vô vàn món khác </Text>
             <View className="flex flex-row gap-x-3 ">
               {FeaturesData.map(item => (
                 <View

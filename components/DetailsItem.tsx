@@ -1,7 +1,7 @@
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import React, {useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import React, { useState } from 'react';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 interface DetailsItemProps {
   title: string;
   placeholder: string;
@@ -10,7 +10,7 @@ type RootStackParamList = {
   ForgotPassword: undefined;
   Signup: undefined;
 };
-const DetailsItem: React.FC<DetailsItemProps> = ({title, placeholder}) => {
+const DetailsItem: React.FC<DetailsItemProps> = ({ title, placeholder }) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const [changes, setChanges] = useState('');
@@ -20,12 +20,12 @@ const DetailsItem: React.FC<DetailsItemProps> = ({title, placeholder}) => {
   };
 
   return (
-    <View className="flex flex-col mt-3">
+    <View className="mt-3 flex flex-col">
       <Text className="text-xl font-normal text-black-100">{title}</Text>
       <View>
         <TextInput
           placeholder={placeholder}
-          className="border border-neutral-500 text-black-100 font-semibold text-lg rounded-xl mt-1 px-2 py-4"
+          className="mt-1 rounded-xl border border-neutral-500 px-2 py-4 text-lg font-semibold text-black-100"
           placeholderTextColor={'#0F0E0E73'}
           onChangeText={(e: string) => setChanges(e)}
           value={changes}
@@ -33,9 +33,7 @@ const DetailsItem: React.FC<DetailsItemProps> = ({title, placeholder}) => {
         />
         {title === 'Password' && (
           <TouchableOpacity onPress={handleForgotPassword}>
-            <Text className="text-red-600 text-lg font-medium self-end">
-              Forgot Password?
-            </Text>
+            <Text className="self-end text-lg font-medium text-red-600">Forgot Password?</Text>
           </TouchableOpacity>
         )}
       </View>

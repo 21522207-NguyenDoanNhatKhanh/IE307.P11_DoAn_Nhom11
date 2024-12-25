@@ -8,7 +8,7 @@ import icons from '../constants/icons';
 import images from '../constants/images';
 
 const CartTab: React.FC = () => {
-    const { cartItems, removeFromCart, clearCart } = useContext(CartContext) || {};
+    const { cartItems, removeFromCart, addToCart, clearCart } = useContext(CartContext) || {};
 
     const calculateTotal = (): number => {
         return cartItems?.reduce((sum, item) => sum + item.price * item.quantity, 0) || 0;
@@ -67,7 +67,10 @@ const CartTab: React.FC = () => {
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
                     <View className="flex flex-row items-center justify-between p-4 border-b border-gray-300">
+                        {/* Hình ảnh sản phẩm */}
                         <Image source={item.image} style={styles.image} />
+
+                        {/* Thông tin sản phẩm */}
                         <View className="flex-1 mx-4">
                             <Text
                                 className="text-2xl font-semibold text-ellipsis overflow-hidden"
@@ -75,15 +78,30 @@ const CartTab: React.FC = () => {
                             >
                                 {item.name}
                             </Text>
-                            <Text className="text-orange-500 text-xl font-semibold mt-1">{item.price}₫</Text>
+                            <Text className="text-orange-500 text-xl font-semibold mt-1">
+                                {item.price}₫
+                            </Text>
                             <Text className="text-orange-500 text-xl font-semibold">Số lượng: {item.quantity}</Text>
+
+                            {/* Nút tăng/giảm số lượng */}
+                            <View className="fflex flex-row items-center justify-center mt-2 space-x-4">
+                                <TouchableOpacity
+                                    className="border border-gray-400 rounded-full p-3 mx-4"
+                                    onPress={() => removeFromCart?.(item.id)}
+                                >
+                                    <Text className="text-2xl font-bold text-gray-700">-</Text>
+                                </TouchableOpacity>
+
+                                <Text className="text-xl font-semibold mx-6 text-center">{item.quantity}</Text>
+
+                                <TouchableOpacity
+                                    className="bg-orange-500 rounded-full p-3 mx-4"
+                                    onPress={() => addToCart?.(item)}
+                                >
+                                    <Text className="text-2xl font-bold text-white">+</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
-                        <TouchableOpacity
-                            className="bg-orange-500 rounded-full p-2"
-                            onPress={() => removeFromCart?.(item.id)}
-                        >
-                            <Image className="h-12 w-12" source={icons.revcart} resizeMode="contain" />
-                        </TouchableOpacity>
                     </View>
                 )}
             />
