@@ -70,4 +70,4 @@ npx expo start
 
 Sử dụng thiết bị di động cá nhân hoặc máy ảo để kiểm tra dự án.
 
-<h2 align="center">Xin cảm ơn/h2>
+<h2 align="center">Xin cảm ơn</h2>
