@@ -49,8 +49,9 @@ const SignupScreen = (props: Props) => {
     }
 
     const newUser = { email: email, password: password };
-    updateUser(newUser);
+
     if (isChecked) {
+      updateUser(newUser);
       Alert.alert('Đăng ký thành công!');
       navigation.navigate('Login');
     } else {
