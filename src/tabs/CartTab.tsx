@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import { CartContext, CartItem } from '../../components/CartContext';
+import { CartContext } from '../../components/CartContext';
 import { useNavigation } from 'expo-router';
 import { StackNavigationProp } from '@react-navigation/stack';
 import icons from '../constants/icons';
@@ -115,7 +115,7 @@ const CartTab: React.FC = () => {
       />
 
       <Text style={styles.total}>Tổng: {calculateTotal()}₫</Text>
-      <View className="flex flex-row justify-between items-center mx-4 px-4">
+      <View className="flex flex-row justify-between items-center mx-4 my-8 px-4">
         <Button
           title="Làm trống"
           onPress={clearCart}
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   },
   image: { width: 160, height: 160, borderRadius: 8, marginBottom: 10 },
   itemText: { fontSize: 16 },
-  total: { fontSize: 18, fontWeight: 'bold', marginVertical: 10, textAlign: 'center' },
+  total: { fontSize: 18, fontWeight: 'bold', textAlign: 'center' },
 });
 
 export default CartTab;

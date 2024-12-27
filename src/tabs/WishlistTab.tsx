@@ -116,63 +116,78 @@ const products: CartItem[] = [
   },
 ];
 
-type RootStackParamList = {
-  Cart: undefined;
-};
-
 const WishlishTab: React.FC = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const { addToCart } = useContext(CartContext) || {};
 
   type RootStackParamList = {
     Setting: undefined;
+    Cart: undefined;
   };
 
   const NavigateToProfile = () => {
     navigation.navigate('Setting');
   };
+
+  const NavigateToCart = () => {
+    navigation.navigate('Cart');
+  };
+
   return (
-    <View>
-      <View className="mx-5 flex flex-row items-center justify-between py-5">
+    <View className="flex-1">
+      {/* Header */}
+      <View className="mx-5 flex-row items-center justify-between py-5">
         <Image source={icons.menu} className="h-8 w-8" resizeMode="contain" />
         <Image source={images.logo} className="h-14" resizeMode="contain" />
         <TouchableOpacity onPress={NavigateToProfile}>
           <Image source={icons.profile} className="h-8 w-8" resizeMode="contain" />
         </TouchableOpacity>
       </View>
-      {/**search */}
+
+      {/* Search */}
       <CustomSearch initialQuery="" />
 
-      <Text className='text-3xl font-bold text-center pb-2'>Các món ăn hiện đang On Top</Text>
-      <FlatList
-        data={products}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View className="mb-2 flex-row items-center justify-between rounded-lg bg-white p-3 shadow-sm">
-            <Image source={item.image} className="mr-3 h-20 w-20 rounded-lg" />
+      {/* Title */}
+      <Text className="text-3xl font-bold text-center pb-2">Các món ăn hiện đang On Top</Text>
 
-            {/* Thông tin sản phẩm */}
-            <View className="flex-1 justify-center">
-              <Text className="mb-1 text-base text-xl font-bold text-gray-800">{item.name}</Text>
-              <Text className="text-xl font-semibold text-orange-500">
-                {item.price.toLocaleString()}₫
-              </Text>
+      {/* Wrapper để đảm bảo nút luôn hiện */}
+      <View className="flex-1 relative">
+        {/* Product List */}
+        <FlatList
+          data={products}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <View className="mb-2 flex-row items-center justify-between rounded-lg bg-white p-3 shadow-sm">
+              <Image source={item.image} className="mr-3 h-20 w-20 rounded-lg" />
+              <View className="flex-1 justify-center">
+                <Text className="mb-1 text-xl font-bold text-gray-800">{item.name}</Text>
+                <Text className="text-xl font-semibold text-orange-500">
+                  {item.price.toLocaleString()}₫
+                </Text>
+              </View>
+              <TouchableOpacity
+                className="items-center justify-center rounded-full bg-orange-500 p-2"
+                onPress={() => addToCart?.(item)}>
+                <Image source={icons.addcart} className="h-8 w-8" resizeMode="contain" />
+              </TouchableOpacity>
             </View>
+          )}
+          contentContainerStyle={{
+            paddingHorizontal: 10,
+            paddingBottom: 100, // Tăng khoảng trống để không che nút
+          }}
+          showsVerticalScrollIndicator={false}
+        />
 
-            {/* Nút thêm vào giỏ hàng */}
-            <TouchableOpacity
-              className="items-center justify-center rounded-full bg-orange-500 p-2"
-              onPress={() => addToCart?.(item)}>
-              <Image source={icons.addcart} className="h-8 w-8" resizeMode="contain" />
-            </TouchableOpacity>
-          </View>
-        )}
-        contentContainerStyle={{
-          paddingHorizontal: 10,
-          paddingBottom: 180,
-        }}
-        showsVerticalScrollIndicator={false}
-      />
+        {/* Button to Go to Cart */}
+        <View className="absolute bottom-5 left-5 right-5">
+          <TouchableOpacity
+            className="bg-orange-500 py-4 rounded-lg shadow-md items-center"
+            onPress={NavigateToCart}>
+            <Text className="text-white text-lg font-bold">Đi đến giỏ hàng</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };

@@ -61,25 +61,28 @@ const SearchTab: React.FC<SearchProps> = ({ route }) => {
 
       {/* No Result Message */}
       <View className="mx-5">
-  {query ? (
-    <>
-      <Text className="text-lg text-center text-gray-500 mt-2">
-        Bạn có thể thử:
-      </Text>
-      <View className="mt-6">
-        {suggestedFoods.map((item) => (
-          <View key={item.id}>
-            {renderSuggestedFood({ item })}
-          </View>
-        ))}
+        {query ? (
+          <>
+            <Text className="text-lg text-center text-gray-500">
+              Không có món nào trùng với tìm kiếm
+            </Text>
+            <Text className="text-lg text-center text-gray-500 mt-2">
+              Bạn có thể thử:
+            </Text>
+            <View className="mt-6">
+              {suggestedFoods.map((item) => (
+                <View key={item.id}>
+                  {renderSuggestedFood({ item })}
+                </View>
+              ))}
+            </View>
+          </>
+        ) : (
+          <Text className="text-lg text-center text-gray-500">
+            Không có món nào trùng với tìm kiếm
+          </Text>
+        )}
       </View>
-    </>
-  ) : (
-    <Text className="text-lg text-center text-gray-500">
-      Không có món nào trùng với tìm kiếm
-    </Text>
-  )}
-</View>
     </ScrollView>
   );
 };
