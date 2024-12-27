@@ -1,29 +1,35 @@
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import React, {useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import React, { useState, useContext } from 'react';
 import {
   Image,
   ImageSourcePropType,
   Text,
   TouchableOpacity,
   View,
+  Alert,
+  TextInput,
 } from 'react-native';
-import {CustomButton, FormField} from '../../components';
-import {icons} from '../constants';
-
+import Checkbox from 'expo-checkbox';
+import { CustomButton, FormField } from '../../components';
+import { icons } from '../constants';
+import { UserContext } from './../../Auth/Context';
 type Props = {};
-// let's go with get started first
+
 const SignupScreen = (props: Props) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { user, updateUser } = useContext(UserContext);
+  const [isChecked, setIsChecked] = useState(false);
   const [form, setForm] = useState({
     email: '',
     username: '',
     password: '',
     confirmPassword: '',
   });
+
   type RootStackParamList = {
     ForgotPassword: undefined;
     Login: undefined;
@@ -31,15 +37,36 @@ const SignupScreen = (props: Props) => {
   const handleForgotPassword = () => {
     navigation.navigate('ForgotPassword');
   };
+  const { email, password, confirmPassword } = form;
+  const handleLogin = () => {
+    if (!email || !password) {
+      Alert.alert('Vui lòng nhập đầy đủ thông tin!');
+      return;
+    }
+    if (password !== confirmPassword) {
+      Alert.alert('Mật khẩu xác nhận không khớp!');
+      return;
+    }
 
-  const handleLogin = () => {};
+    const newUser = { email: email, password: password };
+
+    if (isChecked) {
+      updateUser(newUser);
+      Alert.alert('Đăng ký thành công!');
+      navigation.navigate('Login');
+    } else {
+      Alert.alert('Chưa đồng ý điều khoản và dịch vụ!');
+    }
+  };
+
   const handleSignInWithProvider = () => {};
   const handleNavigateToLogin = () => {
     navigation.navigate('Login');
   };
+
   return (
-    <View className="px-5 flex-1 bg-white pt-5">
-      <Text className="text-4xl font-bold text-start ">
+    <View className="flex-1 bg-white px-5 pt-5">
+      <Text className="text-start text-4xl font-bold ">
         Tạo một
         {'\n'} tài khoản
       </Text>
@@ -52,7 +79,7 @@ const SignupScreen = (props: Props) => {
           error={emailError}
           handleChangeText={(e: any) => {
             setEmailError('');
-            setForm({...form, email: e});
+            setForm({ ...form, email: e });
           }}
           placeholder="Tên đăng nhập/ Email"
           otherStyles="my-5"
@@ -65,7 +92,7 @@ const SignupScreen = (props: Props) => {
             error={emailError}
             handleChangeText={(e: any) => {
               setPasswordError('');
-              setForm({...form, password: e});
+              setForm({ ...form, password: e });
             }}
             placeholder="Mật khẩu"
             otherStyles="my-5"
@@ -77,16 +104,17 @@ const SignupScreen = (props: Props) => {
             error={passwordError}
             handleChangeText={(e: any) => {
               setPasswordError('');
-              setForm({...form, password: e});
+              setForm({ ...form, confirmPassword: e });
             }}
             placeholder="Xác nhận mật khẩu"
             otherStyles="my-5"
           />
-
-          <Text className="text-[#676767] text-lg font-medium self-end">
-            Khi nhấn vào nút <Text className="text-orange-600">Đăng ký</Text>{' '}
-            , bạn đã đồng ý với điều khoản và dịch vụ của chúng tôi
-          </Text>
+          <View className="items-cente flex-row">
+            <Checkbox value={isChecked} onValueChange={setIsChecked} />
+            <Text className="ml-2 self-end  font-medium text-[#676767]">
+              Bạn đã đồng ý với điều khoản và dịch vụ của chúng tôi
+            </Text>
+          </View>
         </View>
         {/* submit btn */}
         <CustomButton
@@ -97,34 +125,23 @@ const SignupScreen = (props: Props) => {
         />
         {/* or continue with  */}
         <View className="mt-5 self-center">
-          <Text className="text-[#575757] text-lg self-center mt-5">
-            {' '}
-            - Hoặc tiếp tục với -{' '}
-          </Text>
-          <View className="flex flex-row items-center gap-3 mt-5 justify-between">
+          <Text className="mt-5 self-center text-lg text-[#575757]"> - Hoặc tiếp tục với - </Text>
+          <View className="mt-5 flex flex-row items-center justify-between gap-3">
             {ContinueWithData.map((item, index) => {
               return (
                 <TouchableOpacity
                   key={item.id}
                   onPress={handleSignInWithProvider}
-                  className="rounded-full border-2 bg-red-50 border-red-500 p-4">
-                  <Image
-                    source={item.image}
-                    className="w-8 h-8 "
-                    resizeMode="contain"
-                  />
+                  className="rounded-full border-2 border-red-500 bg-red-50 p-4">
+                  <Image source={item.image} className="h-8 w-8 " resizeMode="contain" />
                 </TouchableOpacity>
               );
             })}
           </View>
-          <View className="flex flex-row  items-center gap-x-2 justify-center mt-8">
-            <Text className="text-[#575757] text-xl ">
-              Đã có tài khoản?
-            </Text>
+          <View className="mt-8 flex  flex-row items-center justify-center gap-x-2">
+            <Text className="text-xl text-[#575757] ">Đã có tài khoản?</Text>
             <TouchableOpacity onPress={handleNavigateToLogin}>
-              <Text className="text-xl font-bold underline text-orange-500 ">
-                Đăng nhập
-              </Text>
+              <Text className="text-xl font-bold text-orange-500 underline ">Đăng nhập</Text>
             </TouchableOpacity>
           </View>
         </View>

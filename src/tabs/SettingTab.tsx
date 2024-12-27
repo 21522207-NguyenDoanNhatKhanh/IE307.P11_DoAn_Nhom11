@@ -17,7 +17,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteStackParamList } from '~/app/index';
 
 type Props = {};
-import { UserContext } from './../../components/Context';
+import { UserContext } from '../../Auth/Context';
 const SettingTab = (props: Props) => {
   const navigation = useNavigation<StackNavigationProp<RouteStackParamList>>();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -71,7 +71,9 @@ const SettingTab = (props: Props) => {
     );
   };
   const handleInfo = () => {
-    updateUser({ email, password });
+    const newUser = { email: email, password: password };
+    updateUser(newUser);
+    // updateUser({ email, password });
     updateAddress({ pinCode, street, country });
     updateBankDetails({ accountNumber, ownerName, bankCode });
     if (checkIfChanged()) {

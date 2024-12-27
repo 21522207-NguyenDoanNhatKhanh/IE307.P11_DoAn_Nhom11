@@ -20,7 +20,7 @@ import { SettingTab } from '~/src/tabs';
 import { SafeAreaView } from 'react-native';
 import WishlishTab from '~/src/tabs/WishlistTab';
 
-import { UserProvider } from './../components/Context';
+import { UserProvider } from './../Auth/Context';
 
 export type RouteStackParamList = {
   Onboarding: undefined;
@@ -35,7 +35,7 @@ export type RouteStackParamList = {
   MenuList: undefined;
   Setting: undefined;
   Hot: undefined;
-}
+};
 
 const App = () => {
   const Stack = createNativeStackNavigator<RouteStackParamList>();

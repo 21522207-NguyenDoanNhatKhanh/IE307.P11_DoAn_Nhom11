@@ -1,9 +1,17 @@
 import React, { useContext } from 'react';
-import { View, Text, Button, FlatList, Image, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  FlatList,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import { CartContext, CartItem } from '../../components/CartContext';
 import { useNavigation } from 'expo-router';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { ScrollView } from 'react-native-gesture-handler';
 import icons from '../constants/icons';
 import images from '../constants/images';
 

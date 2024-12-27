@@ -1,6 +1,12 @@
 import icons from './icons';
 import images from './images';
-import {FeaturesTypes, ProductTypes, restaurantCategoryParams, SplashTypes, TabBarTypes} from './types';
+import {
+  FeaturesTypes,
+  ProductTypes,
+  restaurantCategoryParams,
+  SplashTypes,
+  TabBarTypes,
+} from './types';
 // random number between 1 to 1000 :)
 const randomNumber = (min = 1, max = 1000) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -14,7 +20,7 @@ const dishesImgs = [
   'https://drive.google.com/uc?id=1vkFqhXKGcUzrD80KlDhy3g7GdZvmf-Rm',
 ];
 
-const randomDishesImgs = () : string => dishesImgs[randomNumber(0, dishesImgs.length -1)];
+const randomDishesImgs = (): string => dishesImgs[randomNumber(0, dishesImgs.length - 1)];
 
 const randomImage = (): string =>
   `https://picsum.photos/${Math.floor(Math.random() * 1000) + 1}/${Math.floor(Math.random() * 1000) + 1}`;
@@ -29,8 +35,7 @@ const SplashData: SplashTypes[] = [
   {
     image: images.splash2,
     title: 'Thanh toán nhanh chóng',
-    description:
-      'Vô vàn phương thức thanh toán - Tích hợp với nhiều ngân hàng và ví điện tửtử.',
+    description: 'Vô vàn phương thức thanh toán - Tích hợp với nhiều ngân hàng và ví điện tửtử.',
   },
   {
     image: images.splash3,
@@ -103,9 +108,7 @@ const randomPrice = (): number => {
 };
 
 const randomPriceBeforeDeal = (): number =>
-  parseFloat(
-    (randomPrice() + (Math.floor(Math.random() * 1000) + 100)).toFixed(2),
-  );
+  parseFloat((randomPrice() + (Math.floor(Math.random() * 1000) + 100)).toFixed(2));
 
 const randomPriceOff = (price: number, priceBeforeDeal: number): string =>
   ((1 - price / priceBeforeDeal) * 100).toFixed(2);
@@ -162,8 +165,4 @@ const TabBarData: TabBarTypes[] = [
   },
 ];
 
-export {
-  TabBarData,
-  ProductData,
-  SplashData
-}
+export { TabBarData, ProductData, SplashData };
